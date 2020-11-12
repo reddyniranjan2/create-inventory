@@ -4,6 +4,7 @@
 - name: Create a Inventory
   uri:
     url: "https://3.236.84.49/api/v2/inventories/"
+    validate_certs: no
     method: POST
     user: "admin"
     password: "password"
