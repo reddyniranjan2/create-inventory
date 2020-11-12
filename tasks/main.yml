@@ -5,6 +5,7 @@
   uri:
     url: "https://3.236.84.49/api/v2/inventories/"
     validate_certs: no
+    force_basic_auth: true
     method: POST
     user: "admin"
     password: "password"
