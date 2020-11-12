@@ -1,9 +1,6 @@
----
-# tasks file for create_inventory
-
-- name: Create a Inventory
+- name: Create sources
   uri:
-    url: "https://3.236.84.49/api/v2/inventories/"
+    url: "https://3.236.84.49/api/v2/inventories/8/inventory_sources/"
     validate_certs: no
     force_basic_auth: true
     method: POST
@@ -13,8 +10,9 @@
     headers: 
       Content-Type: "application/json"
     body_format: json
-    body: "{ \"kind\" : \"\", \"name\" : \"auto_inventory_1\", \"organization\" : 1 }"
-  register: result 
+    body: "{ \"name\" : \"src1\", \"overwrite_vars\" : true, \"credential\" : 2, \"instance_filters\": \"tag-key=creator\", \"source\": \"ec2\", \"update_on_project_update\": false }"
+    status_code: 201
+  register: sources_result 
   
 - debug:
-    msg: result
+    msg: sources_result
